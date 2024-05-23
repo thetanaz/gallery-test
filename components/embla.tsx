@@ -121,6 +121,7 @@ export const Embla: React.FC<PropType> = () => {
                 return (
                   <div key={idx} style={{ flex: "0 0 100%" }}>
                     <Image
+                      priority={true}
                       width={600}
                       height={350}
                       alt="image"

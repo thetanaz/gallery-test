@@ -43,7 +43,7 @@ export default function FullImage({
         />
       </button>
       <Image
-        priority
+        priority={true}
         src={imgSrc}
         alt="image"
         fill
