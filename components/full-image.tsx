@@ -25,8 +25,8 @@ export default function FullImage({
         initial={{
           scale: 0,
           opacity: 0,
-          y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
-          x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
+          y: `calc(-50vh + ${height / 2}px + ${y}px)`,
+          x: `calc(-50vw + ${width / 2}px + ${x}px)`,
         }} // Initial scale is 0 (hidden)
         animate={{
           scale: 1,
@@ -37,8 +37,8 @@ export default function FullImage({
         }} // Animate to scale 1 (full size)
         exit={{
           scale: 0,
-          y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
-          x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
+          y: `calc(-50vh + ${height / 2}px + ${y}px)`,
+          x: `calc(-50vw + ${width / 2}px + ${x}px)`,
 
           transition: { duration: 0.5 },
         }}
