@@ -20,20 +20,18 @@ export default function FullImage({
 }) {
   return (
     <>
-      <Head>
-        <Link rel="preload" as="image" href="/imgs/1.jpg"></Link>
-        <Link rel="preload" as="image" href="/imgs/2.jpg"></Link>
-        <Link rel="preload" as="image" href="/imgs/3.jpg"></Link>
-        <Link rel="preload" as="image" href="/imgs/4.jpg"></Link>
-        <Link rel="preload" as="image" href="/imgs/5.jpg"></Link>
-      </Head>
       <motion.div
         initial={{
           scale: 0,
           y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
           x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
         }} // Initial scale is 0 (hidden)
-        animate={{ scale: 1, x: 0, y: 0, transition: { duration: 0.34 } }} // Animate to scale 1 (full size)
+        animate={{
+          scale: 1,
+          x: 0,
+          y: 0,
+          transition: { duration: 0.35, delay: 0.25 },
+        }} // Animate to scale 1 (full size)
         exit={{
           scale: 0,
           y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,

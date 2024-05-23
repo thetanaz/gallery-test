@@ -8,6 +8,8 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import FullImage from "./full-image";
 import Image from "next/image";
+import Head from "next/head";
+import Link from "next/link";
 
 type PropType = {
   options?: EmblaOptionsType;
