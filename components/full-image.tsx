@@ -30,7 +30,7 @@ export default function FullImage({
           scale: 1,
           x: 0,
           y: 0,
-          transition: { duration: 0.35, delay: 0.25 },
+          transition: { duration: 0.35 },
         }} // Animate to scale 1 (full size)
         exit={{
           scale: 0,
