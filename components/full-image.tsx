@@ -33,12 +33,7 @@ export default function FullImage({
       }}
       className="fixed bg-white/5 shadow-lg ring-1 ring-black/5 backdrop-filter backdrop-blur-md z-50 w-[100vw] h-[100vh] flex items-center justify-center"
     >
-      <div
-        className="relative w-[95vw] h-[95vh]"
-        onClick={() => {
-          onClick;
-        }}
-      >
+      <div className="relative w-[95vw] h-[95vh]">
         <button
           onClick={onClick}
           className="z-20 absolute top-5 hover:top-3.5 transition-transform ease-in-out hover:right-12 right-10 w-[32px] h-[32px]"
