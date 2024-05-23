@@ -1,8 +1,9 @@
 import { Minimize } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Head from "next/head";
-import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+
 export default function FullImage({
   imgSrc,
   onClick,
@@ -23,14 +24,16 @@ export default function FullImage({
       <motion.div
         initial={{
           scale: 0,
+          opacity: 0,
           y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
           x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
         }} // Initial scale is 0 (hidden)
         animate={{
           scale: 1,
+          opacity: 1,
           x: 0,
           y: 0,
-          transition: { duration: 0.35 },
+          transition: { duration: 0.5 },
         }} // Animate to scale 1 (full size)
         exit={{
           scale: 0,
@@ -39,7 +42,9 @@ export default function FullImage({
 
           transition: { duration: 0.5 },
         }}
-        className="fixed bg-white/5 shadow-lg ring-1 ring-black/5 backdrop-filter backdrop-blur-md z-50 w-[100vw] h-[100vh] flex items-center justify-center"
+        className={cn(
+          "fixed flex z-50 w-[100vw] h-[100vh] items-center justify-center"
+        )}
       >
         <div className="relative w-[95vw] h-[95vh]">
           <button
