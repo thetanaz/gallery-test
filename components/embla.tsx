@@ -103,35 +103,34 @@ export const Embla: React.FC<PropType> = () => {
               height={dimensions.height}
             />
           ) : null}
-
-          <div
-            ref={(ref) => {
-              emblaRef(ref);
-            }}
-            className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-[300px] h-[600px] md:w-[600px] md:h-[350px]"
-          >
-            <div className="flex" ref={divRef}>
-              {imgs.map((img, idx) => {
-                return (
-                  <div key={idx} style={{ flex: "0 0 100%" }}>
-                    <Image
-                      priority={true}
-                      width={900}
-                      height={650}
-                      alt="image"
-                      src={img}
-                      onClick={() => {
-                        setIsMaximized(true);
-                        setCurrentImageIndex(idx);
-                      }}
-                      className=" z-20 bg-center object-cover w-full h-full"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </AnimatePresence>
+        <div
+          ref={(ref) => {
+            emblaRef(ref);
+          }}
+          className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-[300px] h-[600px] md:w-[600px] md:h-[350px]"
+        >
+          <div className="flex" ref={divRef}>
+            {imgs.map((img, idx) => {
+              return (
+                <div key={idx} style={{ flex: "0 0 100%" }}>
+                  <Image
+                    priority={true}
+                    width={900}
+                    height={650}
+                    alt="image"
+                    src={img}
+                    onClick={() => {
+                      setIsMaximized(true);
+                      setCurrentImageIndex(idx);
+                    }}
+                    className=" z-20 bg-center object-cover w-full h-full"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );
