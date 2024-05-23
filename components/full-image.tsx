@@ -1,5 +1,6 @@
 import { Minimize } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 export default function FullImage({
   imgSrc,
   onClick,
@@ -41,11 +42,14 @@ export default function FullImage({
           className="text-white w-[32px] h-[32px] hover:w-[48px] hover:h-[48px] bg-transparent"
         />
       </button>
-      <div
+      <Image
+        priority
+        src={imgSrc}
+        alt="image"
+        fill
+        objectFit="cover"
         className="h-full w-full rounded-xl"
         style={{
-          backgroundImage: `url(${imgSrc})`,
-          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

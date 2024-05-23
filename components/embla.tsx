@@ -129,7 +129,7 @@ export const Embla: React.FC<PropType> = () => {
                         setIsMaximized(true);
                         setCurrentImageIndex(idx);
                       }}
-                      className="bg-center object-cover w-full h-full"
+                      className=" z-20 bg-center object-cover w-full h-full"
                     />
                   </div>
                 );
