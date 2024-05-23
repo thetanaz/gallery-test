@@ -59,8 +59,9 @@ export default function FullImage({
             src={imgSrc}
             alt="image"
             fill
+            sizes="(max-width:200px) 5vw,(max-width:300px) 100vw,(max-width:500px) 100vw,(max-width:1200px)100vw,100vw"
             objectFit="cover"
-            className="rounded-xl w-[300px] h-[600px] md:w-[1920px] md:h-[1080px] pointer-events-none"
+            className="flex items-center margin-auto h-full w-full rounded-xl  md:w-[1920px] md:h-[1080px] pointer-events-none"
             style={{
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
