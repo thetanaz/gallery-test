@@ -1,12 +1,13 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel";
-import Image from "next/image";
+
 import Autoplay, { AutoplayOptionsType } from "embla-carousel-autoplay";
-import Fade from "embla-carousel-fade";
-import { AnimatePresence, delay } from "framer-motion";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import FullImage from "./full-image";
+import Image from "next/image";
 
 type PropType = {
   options?: EmblaOptionsType;
@@ -18,18 +19,18 @@ export const Embla: React.FC<PropType> = () => {
   ]);
 
   const imgs = [
-    "../imgs/1.jpg",
-    "../imgs/2.jpg",
-    "../imgs/3.jpg",
-    "../imgs/4.jpg",
-    "../imgs/5.jpg",
+    "/imgs/1.jpg",
+    "/imgs/2.jpg",
+    "/imgs/3.jpg",
+    "/imgs/4.jpg",
+    "/imgs/5.jpg",
   ];
 
   const [isMaximized, setIsMaximized] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const divRef = useRef<HTMLDivElement>(null);
   const [currentCoordinates, setCurrentCoordinates] = useState({ x: 0, y: 0 });
-  const [isPlaying, setIsPlaying] = useState(true);
+
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -119,12 +120,14 @@ export const Embla: React.FC<PropType> = () => {
               {imgs.map((img, idx) => {
                 return (
                   <div key={idx} style={{ flex: "0 0 100%" }}>
-                    <img
+                    <Image
+                      width={600}
+                      height={350}
+                      alt="image"
                       src={img}
                       onClick={() => {
                         setIsMaximized(true);
                         setCurrentImageIndex(idx);
-                        setIsPlaying(false);
                       }}
                       className="bg-center object-cover w-full h-full"
                     />
