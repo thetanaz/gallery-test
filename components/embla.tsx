@@ -87,14 +87,14 @@ export const Embla: React.FC<PropType> = () => {
   return (
     <>
       <div className="flex h-screen justify-center items-center">
-        {isMaximized ? (
+        {/* {isMaximized ? (
           <div
             onClick={() => {
               setIsMaximized(false);
             }}
             className="fixed h-screen w-screen bg-white/5 shadow-lg ring-1 z-50 ring-black/5 backdrop-filter backdrop-blur-md"
           />
-        ) : null}
+        ) : null} */}
         <AnimatePresence>
           {isMaximized ? (
             <FullImage

@@ -31,29 +31,37 @@ export default function FullImage({
 
         transition: { duration: 0.5 },
       }}
-      className="fixed rounded-xl top-[2.5vh] left-[2.5vw] z-50 w-[95vw] h-[95vh] flex  items-center justify-center"
+      className="fixed bg-white/5 shadow-lg ring-1 ring-black/5 backdrop-filter backdrop-blur-md z-50 w-[100vw] h-[100vh] flex items-center justify-center"
     >
-      <button
-        onClick={onClick}
-        className=" z-20 absolute top-5 hover:top-3.5 transition-transform ease-in-out hover:right-12 right-10 w-[32px] h-[32px]"
-      >
-        <Minimize
-          size={48}
-          className="text-white w-[32px] h-[32px] hover:w-[48px] hover:h-[48px] bg-transparent"
-        />
-      </button>
-      <Image
-        priority={true}
-        src={imgSrc}
-        alt="image"
-        fill
-        objectFit="cover"
-        className="h-full w-full rounded-xl"
-        style={{
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+      <div
+        className="relative w-[95vw] h-[95vh]"
+        onClick={() => {
+          onClick;
         }}
-      />
+      >
+        <button
+          onClick={onClick}
+          className="z-20 absolute top-5 hover:top-3.5 transition-transform ease-in-out hover:right-12 right-10 w-[32px] h-[32px]"
+        >
+          <Minimize
+            size={48}
+            className="text-white w-[32px] h-[32px] hover:w-[48px] hover:h-[48px] bg-transparent"
+          />
+        </button>
+
+        <Image
+          priority={true}
+          src={imgSrc}
+          alt="image"
+          fill
+          objectFit="cover"
+          className="rounded-xl pointer-events-none"
+          style={{
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        />
+      </div>
     </motion.div>
   );
 }
