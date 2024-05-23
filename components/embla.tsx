@@ -106,7 +106,7 @@ export const Embla: React.FC<PropType> = () => {
             ref={(ref) => {
               emblaRef(ref);
             }}
-            className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-[600px] h-[350px]"
+            className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-[300px] h-[600px] md:w-[600px] md:h-[350px]"
           >
             <div className="flex" ref={divRef}>
               {imgs.map((img, idx) => {
@@ -114,8 +114,8 @@ export const Embla: React.FC<PropType> = () => {
                   <div key={idx} style={{ flex: "0 0 100%" }}>
                     <Image
                       priority={true}
-                      width={600}
-                      height={350}
+                      width={900}
+                      height={650}
                       alt="image"
                       src={img}
                       onClick={() => {

@@ -30,14 +30,14 @@ export default function FullImage({
       <motion.div
         initial={{
           scale: 0,
-          y: `calc(-50vh + ${height / 2}px + ${y}px)`,
-          x: `calc(-50vw + ${width / 2}px + ${x}px)`,
+          y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
+          x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
         }} // Initial scale is 0 (hidden)
         animate={{ scale: 1, x: 0, y: 0, transition: { duration: 0.34 } }} // Animate to scale 1 (full size)
         exit={{
           scale: 0,
-          y: `calc(-50vh + ${height / 2}px + ${y}px)`,
-          x: `calc(-50vw + ${width / 2}px + ${x}px)`,
+          y: `calc(-47.5vh + ${height / 2}px + ${y}px)`,
+          x: `calc(-47.5vw + ${width / 2}px + ${x}px)`,
 
           transition: { duration: 0.5 },
         }}
@@ -60,7 +60,7 @@ export default function FullImage({
             alt="image"
             fill
             objectFit="cover"
-            className="rounded-xl pointer-events-none"
+            className="rounded-xl w-[300px] h-[600px] md:w-[1920px] md:h-[1080px] pointer-events-none"
             style={{
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
