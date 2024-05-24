@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export default function FullImage({
   imgSrc,
@@ -19,6 +20,7 @@ export default function FullImage({
   height: number;
   width: number;
 }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <>
       <motion.div
@@ -57,7 +59,9 @@ export default function FullImage({
             />
           </button>
 
+          {!isLoaded && <div className="bg-transparent" />}
           <Image
+            onLoad={() => setIsLoaded(true)}
             priority={true}
             src={imgSrc}
             alt="image"
