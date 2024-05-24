@@ -21,6 +21,7 @@ export default function FullImage({
   width: number;
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <>
       <motion.div
@@ -48,7 +49,12 @@ export default function FullImage({
           "fixed flex z-50 w-[100vw] h-[100vh] items-center justify-center"
         )}
       >
-        <div className="relative w-[95vw] h-[95vh]">
+        <div
+          className={cn(
+            "relative w-[95vw] h-[95vh]",
+            isLoaded ? "" : "invisible"
+          )}
+        >
           <button
             onClick={onClick}
             className="z-20 absolute top-5 hover:top-3.5 transition-transform ease-in-out hover:right-12 right-10 w-[32px] h-[32px]"
@@ -59,7 +65,6 @@ export default function FullImage({
             />
           </button>
 
-          {!isLoaded && <div className="bg-transparent" />}
           <Image
             onLoad={() => setIsLoaded(true)}
             priority={true}
