@@ -24,6 +24,7 @@ export const Embla: React.FC<PropType> = () => {
     "/imgs/4.jpg",
     "/imgs/5.jpg",
   ];
+
   const [isMaximized, setIsMaximized] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { height, width } = useWindowDimensions();

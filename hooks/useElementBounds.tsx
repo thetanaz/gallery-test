@@ -1,4 +1,4 @@
-import { useEffect, useState, RefObject, useLayoutEffect } from "react";
+import { useEffect, useState, RefObject } from "react";
 
 interface Rect {
   top: number;
@@ -10,7 +10,7 @@ interface Rect {
 function useElementBounds(ref: RefObject<HTMLDivElement>): Rect | null {
   const [bounds, setBounds] = useState<Rect | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const updateBounds = () => {
       if (ref.current) {
         const { top, right, bottom, left } =
