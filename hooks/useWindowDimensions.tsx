@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 function getWindowDimensions() {
   if (typeof window !== "undefined") {
@@ -22,7 +22,7 @@ export default function useWindowDimensions() {
     height: 0,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
