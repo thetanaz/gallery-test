@@ -1,4 +1,5 @@
 "use client";
+
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence } from "framer-motion";
@@ -49,7 +50,6 @@ export const Embla: React.FC = () => {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-
       if (carouselRef.current) {
         const rect = carouselRef.current.getBoundingClientRect();
         setBounds({
@@ -65,7 +65,6 @@ export const Embla: React.FC = () => {
   useLayoutEffect(() => {
     updateDimensionsAndBounds();
     setIsMounted(true);
-
     window.addEventListener("resize", updateDimensionsAndBounds);
     return () => {
       window.removeEventListener("resize", updateDimensionsAndBounds);
@@ -93,12 +92,20 @@ export const Embla: React.FC = () => {
     }
   }, [emblaApi, isMaximized]);
 
+  const showPrevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + imgs.length) % imgs.length);
+  };
+
+  const showNextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % imgs.length);
+  };
+
   if (!isMounted) {
     return null;
   }
 
   return (
-    <div className="flex h-full justify-start items-center">
+    <div className="flex w-full h-full justify-start items-center">
       <AnimatePresence>
         {isMaximized && (
           <FullImage
@@ -111,12 +118,14 @@ export const Embla: React.FC = () => {
             key="fullImg"
             imgSrc={imgs[currentImageIndex]}
             onClick={() => setIsMaximized(false)}
+            showPrevImage={showPrevImage}
+            showNextImage={showNextImage}
           />
         )}
       </AnimatePresence>
       <div
         ref={setRefs}
-        className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-[300px] h-[600px] md:w-[600px] md:h-[350px]"
+        className="flex cursor-grab active:cursor-grabbing rounded-3xl overflow-hidden w-full h-full "
       >
         <div className="flex">
           {imgs.map((img, idx) => (
@@ -126,6 +135,7 @@ export const Embla: React.FC = () => {
                 width={900}
                 height={650}
                 alt="image"
+                objectFit="contain"
                 src={img}
                 onClick={() => {
                   setIsMaximized(true);

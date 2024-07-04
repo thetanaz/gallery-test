@@ -1,8 +1,14 @@
-import { Minimize } from "lucide-react";
+"use client";
+import {
+  ArrowLeftCircleIcon,
+  ArrowRightCircleIcon,
+  Minimize,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 
 export default function FullImage({
   imgSrc,
@@ -13,6 +19,8 @@ export default function FullImage({
   right,
   width,
   height,
+  showPrevImage,
+  showNextImage,
 }: {
   imgSrc: string;
   onClick: () => void;
@@ -22,6 +30,8 @@ export default function FullImage({
   right: number;
   width: number;
   height: number;
+  showPrevImage: () => void;
+  showNextImage: () => void;
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -30,6 +40,15 @@ export default function FullImage({
     x: left + (right - left) / 2,
     y: top + (bottom - top) / 2,
   };
+
+  // Set up swipe handlers
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: showNextImage,
+    onSwipedRight: showPrevImage,
+    //@ts-ignore
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
   return (
     <motion.div
@@ -55,12 +74,43 @@ export default function FullImage({
       }}
       className="fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-25"
     >
-      <div className="relative w-[97vw] h-[97vh] " onClick={onClick}>
+      <div
+        className="relative w-[97vw] h-[97vh]"
+        onClick={onClick}
+        {...swipeHandlers}
+      >
         <button
-          onClick={onClick}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClick();
+          }}
           className="z-20 absolute top-5 right-5 w-10 h-10 bg-white bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
         >
           <Minimize
+            size={30}
+            className="text-black w-[24px] bg-transparent hover:w-[30px]"
+          />
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            showNextImage();
+          }}
+          className="z-20 absolute top-[50%] right-5 w-10 h-10 bg-white/70 hover:bg-white rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
+        >
+          <ArrowRightCircleIcon
+            size={30}
+            className="text-black w-[24px] bg-transparent hover:w-[30px] z-30"
+          />
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            showPrevImage();
+          }}
+          className="z-20 absolute top-[50%] left-5 w-10 h-10 bg-white/70 hover:bg-white rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
+        >
+          <ArrowLeftCircleIcon
             size={30}
             className="text-black w-[24px] bg-transparent hover:w-[30px]"
           />

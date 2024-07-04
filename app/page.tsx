@@ -3,8 +3,8 @@ import SwipeCarousel from "@/components/swipe-carousel";
 
 export default function Home() {
   return (
-    <main className="w-full h-full">
-      <div className="flex items-center mx-auto justify-center mt-10 w-[350px] h-[1000px] sm:w-[1200px] sm:h-[600px] ">
+    <main className="h-screen w-screen flex items-center">
+      <div className="flex w-[350px] h-[600px] sm:w-[1300px] sm:h-[1000px] items-center mx-auto">
         <Embla />
       </div>
     </main>
