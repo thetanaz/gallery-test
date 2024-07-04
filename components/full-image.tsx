@@ -55,7 +55,7 @@ export default function FullImage({
       }}
       className="fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-25"
     >
-      <div className="relative w-[97vw] h-[97vh] ">
+      <div className="relative w-[97vw] h-[97vh] " onClick={onClick}>
         <button
           onClick={onClick}
           className="z-20 absolute top-5 right-5 w-10 h-10 bg-white bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"

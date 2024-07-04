@@ -98,7 +98,7 @@ export const Embla: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen justify-start items-center">
+    <div className="flex h-full justify-start items-center">
       <AnimatePresence>
         {isMaximized && (
           <FullImage
