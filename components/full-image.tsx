@@ -60,7 +60,10 @@ export default function FullImage({
           onClick={onClick}
           className="z-20 absolute top-5 right-5 w-10 h-10 bg-white bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
         >
-          <Minimize size={30} className="text-black w-[24px] hover:w-[30px]" />
+          <Minimize
+            size={30}
+            className="text-black w-[24px] bg-transparent hover:w-[30px]"
+          />
         </button>
         <div className="relative w-full h-full">
           <Image

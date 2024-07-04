@@ -12,7 +12,9 @@ type AutoplayType = {
 };
 
 export const Embla: React.FC = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 2000 }),
+  ]);
   const [isMounted, setIsMounted] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
