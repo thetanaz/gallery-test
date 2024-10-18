@@ -29,11 +29,11 @@ export const Embla: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const imgs = [
-    "/imgs/1.jpg",
-    "/imgs/2.jpg",
-    "/imgs/3.jpg",
-    "/imgs/4.jpg",
-    "/imgs/5.jpg",
+    "/imgs/1.webp",
+    "/imgs/2.webp",
+    "/imgs/3.webp",
+    "/imgs/4.webp",
+    "/imgs/5.webp",
   ];
 
   const setRefs = useCallback(
