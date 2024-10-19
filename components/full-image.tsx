@@ -53,7 +53,7 @@ export default function FullImage({
   return (
     <motion.div
       initial={{
-        scale: 0,
+        scale: 0.4,
         opacity: 0,
         x: emblaCenter.x - width / 2,
         y: emblaCenter.y - height / 2,
@@ -70,7 +70,7 @@ export default function FullImage({
         opacity: 0,
         x: emblaCenter.x - width / 2,
         y: emblaCenter.y - height / 2,
-        transition: { duration: 0.5 },
+        transition: { duration: 0.7 },
       }}
       className="fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-25"
     >
